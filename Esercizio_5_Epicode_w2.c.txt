@@ -1,0 +1,111 @@
+#include <stdio.h>
+#include <string.h>
+
+
+int main () 
+
+{
+void menu ();
+void moltiplica ();
+void dividi ();
+void ins_string();
+	char scelta;
+	menu ();
+	scanf ("%c", &scelta);
+
+	switch (scelta)
+	{
+		case 'A':
+		    moltiplica();
+		    break;
+		case 'B':
+            dividi();
+            break;
+		case 'C':
+            ins_string();
+            break;
+		case 'D' :
+		    return = 0 ;
+		default:
+		    printf("pultoppo l'istruzione non è valida");
+			selta = ' ' //resetta la scelta non lavida. 
+			break;
+	}
+getchar();
+
+}
+
+
+void menu ()
+{
+	printf ("Benvenuto, sono un assitente digitale, posso aiutarti a sbrigare alcuni compiti\n");
+	printf ("Come posso aiutarti?\n");
+	printf ("A >> Moltiplicare due numeri\n");
+	printf ("B >> Dividere due numeri\n");
+	printf ("C>> Inserire una stringa\n");
+      printf ("D>> Esci");
+}
+
+
+void moltiplica ()
+{
+    int a, b;
+    
+    do {
+        printf("Inserisci il primo numero intero da moltiplicare: ");
+    } while (scanf("%d", &a) != 1);
+    
+    do {
+        printf("Inserisci il secondo numero intero da moltiplicare: ");
+    } while (scanf("%d", &b) != 1);
+    
+    int prodotto = a * b;
+
+    if (prodotto == 0) {printf("Un numero per 0 fa 0.\n");}
+    else printf("Il prodotto tra %d e %d è: %d\n", a, b, prodotto);
+}
+
+
+
+void dividi() 
+{
+    int a, b;
+    int divisione;
+    int result_a, result_b;
+    
+    do {
+        printf("Inserisci il numeratore: ");
+        result_a = scanf("%d", &a);
+        
+        printf("Inserisci il denominatore: ");
+        result_b = scanf("%d", &b);
+        
+        // Controllo se l'input ha avuto successo e se l'utente ha inserito numeri validi
+        if (result_a != 1 || result_b != 1) 
+        {
+            printf("Input non valido. Assicurati di inserire due numeri interi. Riprova.\n");
+            // svuolto buffer degli input
+            while (getchar() != '\n');
+        }
+        else if (b == 0) printf("Impossibile dividere per zero. Riprova.\n");
+    } while (result_a != 1 || result_b != 1 || b == 0);
+
+    divisione = (int)a / b;
+    printf("La divisione tra %d e %d è: %.2f\n", a, b, divisione);
+
+}
+
+
+void ins_string () 
+{
+    char stringa[10];
+    printf ("Inserisci la stringa:");
+    scanf ("%s", stringa);
+	if(strlen(stringa)>10)
+      {
+		printf("la sringa ha + di 10 carateri scrivine una con massimo 10 carateri /n");
+            memset(stringa,0,sizeof(stringa));
+            scanf("%s", stringa);	
+	}		
+}
+
